@@ -1,9 +1,38 @@
-import java.net.Inet4Address;
+/*As new students begin to arrive at college, each receives a uniqu number, 1 ton. Initially, the students do not know one another, each has a different circle of friends. As the semester progresse: other groups of friends begin to form randomly.
+        There will be three arrays, each aligned by an index. The first arr will contain a query Type which will be either Friend or Total. The two arrays, students 1 and students2, will each contain a student If the query type is Friend, the two students become friends. If th query type is Total, report the sum of the sizes of each group of friends for the two students.
+        Example
+        n=4
+        queryType=['Friend', 'Friend', 'Total'] student1 = [1, 2, 1]
+        student2=[2, 3, 4]
+        Initial
+        Friend 12 & Friend 23
+        Total 14
+        3-14
+        The queries are assembled, aligned by index:
+        Index
+        1
+        queryType
+        studentl
+        student2
+        Friend Friend
+        1
+        2
+        2
+        2
+        Total
+        1
+        3
+        4
+        Students will start as discrete groups (1), (2), (3) and (4). Students and 2 become friends with the first query, as well as students 2 and 3 in the second. The new groups are (1, 2), (2, 3) and (4) which simplifies to {1, 2, 3) and (4). In the third query, the number of friends for student 1 = 3 and student 4 = 1 for a Total = 4. Notice th student is indirectly part of the circle of friends of student 1
+*/
+
+
+
+
 import java.util.*;
 public class UnionFind {
 
     static int[] table,count;
-            //= new int[100001];
 
     static int root(int a){
         int i =a;
@@ -24,10 +53,8 @@ public class UnionFind {
     public static List<Integer> getTheGroup(int n,List<String> query, List<Integer>student1, List<Integer> student2) {
         List<Integer> result = new ArrayList<Integer>();
         for(int i=0;i<query.size();i++){
-//            String s= query.get(i);
             if((query.get(i)).equals("Friend")){
                 union(student1.get(i),student2.get(i));
-//                table[root(student1.get(i))] = root(student2.get(i));
             }
             else{
 //                int reqRoot = root(student1.get(i));
